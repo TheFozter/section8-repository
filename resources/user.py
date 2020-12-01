@@ -35,7 +35,6 @@ class UserRegister(Resource):
         user = UserModel(**data)
         user.save_to_db()
 
-<<<<<<< HEAD
         return {"message": "User created successfully."}, 201
     
 class User(Resource):
@@ -94,6 +93,3 @@ class TokenRefresh(Resource):
         current_user = get_jwt_identity()
         new_token = create_access_token(identity=current_user, fresh=False)
         return {'access_token': new_token}, 200
-=======
-        return {"message": "User created successfully."}, 201
->>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db
