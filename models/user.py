@@ -13,7 +13,6 @@ class UserModel(db.Model):
         self.username = username
         self.password = password
 
-<<<<<<< HEAD
     def json(self):
         return {
             'id': self.id,
@@ -24,8 +23,6 @@ class UserModel(db.Model):
         db.session.delete(self)
         db.session.commit()
         
-=======
->>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
