@@ -75,10 +75,13 @@ api.add_resource(StoreList, '/stores')
 api.add_resource(Item, '/item/<string:name>') #http://127.0.0.1:5000/item/chair
 api.add_resource(ItemList, '/items')
 api.add_resource(UserRegister, '/register')
+<<<<<<< HEAD
 api.add_resource(User, '/user/<int:user_id>')
 api.add_resource(UserLogin, '/login')
 api.add_resource(UserLogout, '/logout')
 api.add_resource(TokenRefresh, '/refresh')
+=======
+>>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db
 
 if __name__ == '__main__':
     db.init_app(app)

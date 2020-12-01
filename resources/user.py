@@ -1,5 +1,6 @@
 import sqlite3
 from flask_restful import Resource, reqparse
+<<<<<<< HEAD
 from werkzeug.security import safe_str_cmp
 from flask_jwt_extended import (
     create_access_token, 
@@ -28,6 +29,26 @@ class UserRegister(Resource):
 
     def post(self):
         data = _user_parser.parse_args()
+=======
+from models.user import UserModel
+
+class UserRegister(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument('username',
+        type=str,
+        required=True,
+        help="This field cannot be blank!"
+    )
+    parser.add_argument('password',
+        type=str,
+        required=True,
+        help="This field cannot be blank!"
+    )
+    
+
+    def post(self):
+        data = UserRegister.parser.parse_args()
+>>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db
 
         if UserModel.find_by_username(data['username']) is not None:
             return {"message": "User name '{}' already exists!".format(data['username'])}, 400
@@ -35,6 +56,7 @@ class UserRegister(Resource):
         user = UserModel(**data)
         user.save_to_db()
 
+<<<<<<< HEAD
         return {"message": "User created successfully."}, 201
     
 class User(Resource):
@@ -93,3 +115,6 @@ class TokenRefresh(Resource):
         current_user = get_jwt_identity()
         new_token = create_access_token(identity=current_user, fresh=False)
         return {'access_token': new_token}, 200
+=======
+        return {"message": "User created successfully."}, 201
+>>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db

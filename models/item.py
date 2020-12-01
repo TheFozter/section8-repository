@@ -23,10 +23,13 @@ class ItemModel(db.Model):
     @classmethod
     def find_by_name(cls, name):
         return cls.query.filter_by(name=name).first()
+<<<<<<< HEAD
     
     @classmethod
     def find_all(cls):
         return cls.query.all()
+=======
+>>>>>>> eeb050a6c2083b1828c79657bf7314a95d6c18db
 
     def save_to_db(self):
         db.session.add(self)
